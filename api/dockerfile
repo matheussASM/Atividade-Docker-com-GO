@@ -1,0 +1,14 @@
+FROM golang:1.18rc1
+
+WORKDIR /app
+
+COPY /notes-api ./ 
+
+RUN go build -o note-api
+
+
+FROM alpine:3.15
+
+COPY --from=0 /app/ note-api
+
+ENTRYPOINT [ "./note-api" ]
