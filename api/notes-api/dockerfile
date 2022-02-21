@@ -1,0 +1,12 @@
+FROM golang:1.18rc1
+
+WORKDIR /app
+
+COPY . ./ 
+
+RUN go mod download
+RUN go build -o /note-api-server
+
+EXPOSE 5000
+
+ENTRYPOINT [ "/note-api-server" ]
