@@ -23,6 +23,8 @@ services:
       - atividade2
     ports:
       - '5000:5000'
+    restart: unless-stopped
+    tty: true
 
 volumes:
   atividade-db:
