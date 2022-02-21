@@ -1,12 +1,13 @@
 FROM golang:1.18rc1
 
 WORKDIR /app
-
-COPY . ./ 
-
+COPY . ./
 RUN go mod download
-RUN go build -o /note-api-server
+RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o note-api-server .
 
-EXPOSE 5000
+FROM alpine:latest
 
-ENTRYPOINT [ "/note-api-server" ]
+RUN apk --no-cache add ca-certificates
+WORKDIR /root/
+COPY --from=0 /app ./
+CMD ["./note-api-server"]
