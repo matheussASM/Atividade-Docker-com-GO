@@ -60,6 +60,16 @@ Para apagar uma nota, com o metodo DELETE:
 ```
 http://localhost:5000/api/v1/notes/{id}
 ```
+### :computer: Consumindo a API via terminal
+Outra alternativa de consumo é via terminal
+Para buscar todas as notas:
+```
+curl http://localhost:5000/api/v1/notes/
+```
+Para criar uma nova nota:
+```
+curl -X POST http://localhost:5000/api/v1/notes/ -H 'Content-Type: application/json' -d '{"text":"Exemplo"}'
+```
 
 ## 🛠️ Construído com
 
