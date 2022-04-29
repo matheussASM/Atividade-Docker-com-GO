@@ -1,4 +1,4 @@
-# Pré-Atividade-02
+# Atividade Docker com GO
 Aplicação de anotações REST que possui quatro endpoints, sendo possível realizar um CRUD básico (Cadastrar, editar, remover e visualizar), tendo como propriedades "Text" e o "Id" construído na linguagem GO.  
 
 ## 📋 Pré-requisitos
